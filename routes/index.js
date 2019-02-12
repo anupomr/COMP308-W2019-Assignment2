@@ -12,6 +12,9 @@ router.get('/logout', function(req, res, next) {
 });
 router.get('/about', function(req, res, next) {
   res.render('index', { title: 'About' });
+});
+router.get('/customer', function(req, res, next) {
+  res.render('index', { title: 'Customer' });
 })
 router.get('/login', function(req, res, next) {
   

@@ -1,0 +1,46 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offsetr-3 col-md-9">
+      <h1>
+        <%= title %>
+      </h1>
+      <a class="btn btn-primary" href="/customer-list/add" role="button">
+        <i class="fa fa-plus-square"></i> Add a Customer</a>
+      <br>
+      <table class="table table-bordered table-striped table-hover">
+        <!--Header Row-->
+        <tr>
+          <th class="text-center">First Name</th>
+          <th class="text-center">Last Name</th>
+          <th class="text-center">User Name</th>
+          <th class="text-center">Sports</th>
+          <th class="text-center">No of Languale</th>
+          <th class="text-center">Feedback</th>
+
+        </tr>
+        <!--Header Row-->
+        <% for(let count = 0; count < customerList.length; count++) { %>
+          <tr>
+              <td class="text-center"><%= customerList[count].firstName %></td>
+              <td class="text-center"><%= customerList[count].lastName %></td>
+              <td class="text-center"><%= customerList[count].userName %></td>
+              
+              <td class="text-center"><%= customerList[count].favorateSports %></td>
+              <td class="text-center"><%= customerList[count].noOfLanguage %></td>
+              <td class="text-center"><%= customerList[count].feedback %></td>
+            </tr>              
+      <% } %>
+
+      </table>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<% include ../partials/footer.ejs %>
