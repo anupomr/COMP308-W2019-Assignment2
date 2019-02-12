@@ -7,7 +7,9 @@
         </h1>
         <p class="lead">This is a simple  <%= title %> unit, a simple jumbotron-style component for calling extra attention to
           featured.</p>         
-        
+          <a class="btn btn-primary" href="/customer-list/add" role="button">
+            <i class="fa fa-plus-square"></i> New customer sign up </a>
+          <br>
           <form action="/" method = "post">
 
              <fieldset class="style1" style="width: 497px">
@@ -24,7 +26,10 @@
                 </tr>
                 <tr>
                     <td class="fieldLebel"></td>
-                    <td><input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit" name="submit"></td>
+                    <td><input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Login" name="submit">
+                      <a class="btn btn-primary" href="/signup" role="button">
+                        <i class="fa fa-plus-square"></i> Signup </a>
+                    </td>
                   </tr>
               </table>
             </fieldset>

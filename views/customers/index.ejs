@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-offsetr-3 col-md-9">
+    <div class="col-md-offset-3 col-md-10">
       <h1>
         <%= title %>
       </h1>
@@ -16,9 +16,10 @@
           <th class="text-center">Last Name</th>
           <th class="text-center">User Name</th>
           <th class="text-center">Sports</th>
-          <th class="text-center">No of Languale</th>
+          <th class="text-center">No of Language</th>
           <th class="text-center">Feedback</th>
-
+          <th class="text-center">Modify </th>
+          <th class="text-center">Remove</th>
         </tr>
         <!--Header Row-->
         <% for(let count = 0; count < customerList.length; count++) { %>
@@ -30,6 +31,15 @@
               <td class="text-center"><%= customerList[count].favorateSports %></td>
               <td class="text-center"><%= customerList[count].noOfLanguage %></td>
               <td class="text-center"><%= customerList[count].feedback %></td>
+
+              <td class="text-center">
+                <a href="/customer-list/edit/<%= customerList[count]._id %>" class="btn btn-primary"><i class="fa fa-edit"></i>
+                Edit</a>
+                  
+                </td>
+                <td class="text-center">
+                    <a href="/customer-list/delete/<%= customerList[count]._id %>" class="btn btn-danger"><i class="fa fa-trash"></i>
+                    Delete</a>
             </tr>              
       <% } %>
 

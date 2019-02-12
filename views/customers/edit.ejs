@@ -1,0 +1,67 @@
+
+<% include ../partials/header.ejs %>
+<main class="container">
+  <!--Main Area-->
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to
+      <%= title %>
+    </h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+      featured content or information.</p>
+
+    <form method="post">
+
+      <fieldset class="style1" style="width: 497px">
+        <legend>Feedback Info</legend>
+
+        <table style="width: 103%">
+          <tr>
+            <td class="fieldLebel">First Name: </td>
+            <td> <input type="text" size="30" name="firstName" value="<%= customer.firstName %>"></td>
+          </tr>
+
+          <tr>
+            <td class="fieldLebel"> Last Name: </td>
+            <td> <input type="text" size="30" name="lastName" value="<%= customer.lastName %>"></td>
+          </tr>  
+          <tr>
+            <td class="fieldLebel">Email: </td>
+            <td> <input id="txtEmail" type="text" size="30"  name="userName" value="<%= customer.userName %>"></td>
+          </tr>
+          <tr>
+              <td class="fieldLebel"> Favorite Sport: </td>
+              <td> <input type="text" size="30" name="favorateSports" value="<%= customer.favorateSports %>"></td>
+            </tr> 
+
+            <tr>
+              <td class="fieldLebel"> No of Language: </td>
+              <td> <input type="text" size="30" name="noOfLanguage" value="<%= customer.noOfLanguage %>"></td>
+            </tr> 
+          
+            <tr>
+                <td class="fieldLebel">Your Comments</td>
+                <td><textarea rows="4" cols="50" name="feedback" value="<%= customer.feedback %>"></textarea></td>
+              </tr>
+          
+          <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit" name="Feedback">
+              <a href="/customer-list" class="btn btn-warning">
+                <i class="fa fa-undo"></i> Cancel</a></td>
+          </tr>
+        </table>
+      </fieldset>
+
+
+
+    </form>
+
+    <hr class="my-4">
+    <p>This utility and content developed by Anupom Roy.</p>
+    <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/anupom-roy/" role="button">Learn more</a>
+  </div>
+
+</main>
+
+
+<% include ../partials/footer.ejs %>

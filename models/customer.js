@@ -13,4 +13,4 @@ let customerSchema=mongoose.Schema({
     collection: "customers"
 });
 
-module.exports=mongoose.model('test', customerSchema);
+module.exports=mongoose.model('customer', customerSchema);

@@ -15,7 +15,10 @@ router.get('/about', function(req, res, next) {
 });
 router.get('/customer', function(req, res, next) {
   res.render('index', { title: 'Customer' });
-})
+});
+router.get('/signup', function(req, res, next) {
+  res.render('signup', { title: 'Signup' });
+});
 router.get('/login', function(req, res, next) {
   
   res.render('login', { title: 'Login' });
