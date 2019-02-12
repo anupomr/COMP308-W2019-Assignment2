@@ -1,4 +1,5 @@
 let mongoose=require('mongoose');
+
 //Create model  class
 let customerSchema=mongoose.Schema({
     firstName: String,

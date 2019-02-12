@@ -92,6 +92,7 @@ router.get('/edit/:id', (req, res, next) => {
 /* POST route for processing Edit page */
 router.post('/edit/:id', (req, res, next) => {
     let id=req.params.id;
+    
     let updatedCustomer = customerModel({
         "_id":id,
         "firstName": req.body.firstName,
@@ -109,7 +110,37 @@ router.post('/edit/:id', (req, res, next) => {
         else{
             res.redirect('/customer-list');
         }
-    });
+    });    
+});
+
+/* GET request for processing delete action*/
+router.get('/delete/:id', (req, res, next) => {
+    let id=req.params.id;
+    customerModel.remove({_id:id},(err)=>{
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        else{
+            res.redirect('/customer-list');
+        }
+    });     
+});
+/* GET route for processing feedback page */
+router.get('/feedback/:id', (req, res, next) => {
+    let id=req.params.id;
     
+    customerModel.findById(id, (err, customerObject) => {
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        else{
+            res.render('/feedback',{
+                title:'Edit Profile',
+                customer: customerObject
+            });
+        }
+    });   
 });
 module.exports = router;

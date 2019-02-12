@@ -9,39 +9,45 @@
     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
       featured content or information.</p>
 
-    <form action="/thanku" method="post">
+    <form method="post">
 
       <fieldset class="style1" style="width: 497px">
-        <legend>Fieedback Info</legend>
+        <legend>Feedback Info</legend>
 
         <table style="width: 103%">
           <tr>
             <td class="fieldLebel">First Name: </td>
-            <td> <input type="text" size="30" name="fname"></td>
+            <td> <input type="text" size="30" name="firstName" value="<%= customer.firstName %>"></td>
           </tr>
 
           <tr>
             <td class="fieldLebel"> Last Name: </td>
-            <td> <input type="text" size="30" name="lname"></td>
+            <td> <input type="text" size="30" name="lastName" value="<%= customer.lastName %>"></td>
           </tr>  
-
-          <tr>
-              <td class="fieldLebel"> Favorite Sport: </td>
-              <td> <input type="text" size="30" name="lname"></td>
-            </tr> 
-
           <tr>
             <td class="fieldLebel">Email: </td>
-            <td> <input id="txtEmail" type="text" size="30" value=<%=Email %> name="txtEmail"></td>
+            <td> <input id="txtEmail" type="text" size="30"  name="userName" value="<%= customer.userName %>"></td>
           </tr>
-
           <tr>
-            <td class="fieldLebel">Your Comments</td>
-            <td><textarea rows="4" cols="50"></textarea></td>
-          </tr>
+              <td class="fieldLebel"> Favorite Sport: </td>
+              <td> <input type="text" size="30" name="favorateSports" value="<%= customer.favorateSports %>"></td>
+            </tr> 
+
+            <tr>
+              <td class="fieldLebel"> No of Language: </td>
+              <td> <input type="text" size="30" name="noOfLanguage" value="<%= customer.noOfLanguage %>"></td>
+            </tr> 
+          
+            <tr>
+                <td class="fieldLebel">Your Comments</td>
+                <td><textarea rows="4" cols="50" name="feedback" value="<%= customer.feedback %>"></textarea></td>
+              </tr>
+          
           <tr>
             <td></td>
-            <td><input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit" name="Feedback"></td>
+            <td><input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Submit" name="Feedback">
+              <a href="/" class="btn btn-warning">
+                <i class="fa fa-undo"></i> Cancel</a></td>
           </tr>
         </table>
       </fieldset>
