@@ -123,18 +123,21 @@ module.exports.deleteAction=(req, res, next) => {
 }
 
 module.exports.displayFeedbackPage=(req, res, next) => {
-    let id=req.params.id;
-    
+    var id=req.body.userName;
+    console.log(id);
     customerModel.findById(id, (err, customerObject) => {
         if(err){
             console.log(err);
             res.end(err);
         }
         else{
+            console.log(customerObject);
             res.render('/feedback',{
                 title:'Edit Profile',
                 customer: customerObject
+                
             });
+            
         }
     });   
 }

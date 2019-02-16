@@ -1,8 +1,6 @@
 let express = require('express');
 let router = express.Router();
 
-
-
 let customerController=require('../controllers/customer');
 //Read All Data
 router.get('/',customerController.displayCustomerList); 
@@ -23,5 +21,5 @@ router.post('/edit/:id', customerController.processEditPage);
 /* GET request for processing delete action*/
 router.get('/delete/:id', customerController.deleteAction);
 /* GET route for processing feedback page */
-router.get('/feedback/:id', customerController.displayFeedbackPage);
+router.get('/feedback', customerController.displayFeedbackPage);
 module.exports = router;

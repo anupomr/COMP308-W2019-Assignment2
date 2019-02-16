@@ -4,6 +4,13 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+// Module for Authentication
+let session = require('express-session');
+let passport=require('passport');
+let passportLocal=require('passport-local');
+let LocalStrategy=passportLocal.Strategy;
+let flash=require('connect-flash');
+
 // Database setup
 let mongoose=require('mongoose');
 let DB = require('./config/db');
@@ -16,7 +23,7 @@ mongoDB.once('open', ()=>{
   console.log("Connected to MongoDB...");
 })
 
-var session = require('express-session');
+
 
 let indexRouter = require('./routes/index');
 let customerRouter=require('./routes/customer')
@@ -32,6 +39,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
+//
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
+
 //initialize the session 
 app.use(session({
   //a session is uninitialized when it is new but not modified
@@ -42,12 +55,27 @@ app.use(session({
   resave: true,
   secret: 'comp308'
 }));
-//
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+
+// app.use(flash());
+// app.use(passport.initialize());
+// app.use(passport.session());
+
 app.use('/', indexRouter);
 app.use('/customer-list', customerRouter);
+
+// Passport User Configuration
+// create a user model
+/*
+let UserModel = require('../Lab02/models/user');
+let User = UserModel.User;
+
+// implement a user strategy
+passport.use(User.createStrategy());
+
+// serialize and deserialize user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
